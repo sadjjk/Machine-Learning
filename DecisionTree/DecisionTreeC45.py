@@ -32,7 +32,7 @@ class DecisionTreeC45(DecisionTreeID3):
 
         return df_field_df.drop(field, axis=1)
 
-    # 计算信息熵 空值增加权重
+    # 计算信息熵
     def _get_entropy(self, data_df, label):
         data_num = data_df.shape[0]
         entropy_value = -data_df.groupby(label).sum()[self.feature_rate_field].apply(
@@ -138,21 +138,6 @@ class DecisionTreeC45(DecisionTreeID3):
 
 
 if __name__ == '__main__':
-    # df = pd.DataFrame([[0, 0, 0, 0, 'no'],
-    #                    [0, 0, 0, 0, 'yes'],
-    #                    [0, 1, 0, 1, 'yes'],
-    #                    [0, 1, 1, 0, 'yes'],
-    #                    [0, 0, 0, 0, 'no'],
-    #                    [1, 0, 0, 0, 'no'],
-    #                    [1, 0, 0, 1, 'no'],
-    #                    [1, 1, 1, 1, 'yes'],
-    #                    [1, 0, 1, 2, 'yes'],
-    #                    [1, 0, 1, 2, 'yes'],
-    #                    [2, 0, 1, 2, 'yes'],
-    #                    [2, 0, 1, 1, 'yes'],
-    #                    [2, 1, 0, 1, 'yes'],
-    #                    [2, 1, 0, 2, 'yes'],
-    #                    [2, 0, 0, 0, 'no']], columns=['年龄', '有工作', '有自己的房子', '信贷情况', '是否放贷'])
 
     df = pd.DataFrame([[np.nan, '蜷缩', '浊响', '清晰', '凹陷', '硬滑', 0.697, '是'],
                        ['乌黑', '蜷缩', '沉闷', '清晰', '凹陷', np.nan, 0.774, '是'],
